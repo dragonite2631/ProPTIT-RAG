@@ -12,7 +12,7 @@ Thông qua một quy trình đa tầng bao gồm truy xuất ban đầu, sắp x
 ## Mô tả kiến trúc
 
 
-![](.\Img\multiphase_retrieval.png)
+![](NeoRAG-Cup-2025/Img/multiphase_retrieval.png)
 
 1. Truy vấn & lọc ban đầu: Query được sử dụng cùng với kho dữ liệu ProPTIT documents để thực hiện tìm kiếm ban đầu bằng BM25L, tạo ra các tài liệu liên quan hàng đầu (Top-k1 relevant documents).
 2. Sắp xếp lại & tổng hợp sơ bộ: Các tài liệu (Top-k1) này được đưa qua Reranker/Vietnamese_reranker để cải thiện thứ hạng. Điểm số BM25 và Reranker được tổng hợp (Ensemble) với trọng số alpha để tạo ra Ensemble score phase 2.
