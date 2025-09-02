@@ -18,7 +18,7 @@ class LLM:
         self.df_base = pd.read_csv(data_path)
         self.client = OpenAI(
         base_url = "https://integrate.api.nvidia.com/v1",
-        api_key = os.getenv("NVIDIA_API_KEY")
+        api_key = "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"
         )
     def generate_rank_prompt(self, query, doc):
         return f"""
@@ -237,3 +237,4 @@ if __name__ == "__main__":
     #         score = model.get_score(query, doc)
     #         print(f"{query} - {doc} - {score} -{type(score)}")
     #         print("-" * 50)
+
