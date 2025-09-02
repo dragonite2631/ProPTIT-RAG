@@ -55,7 +55,7 @@ SUGGESTED_QUESTIONS = [
 @st.cache_resource
 def load_model():
     llm_name = "openai/gpt-oss-20b"
-    base_data_path = "CLB_PROPTIT.csv"
+    base_data_path = "ProPTIT-RAG/NeoRAG-Cup-2025/CLB_PROPTIT.csv"
     llm_model = LLM(llm_name, base_data_path)
     return llm_model
 
@@ -63,9 +63,9 @@ llm_model = load_model()
 
 @st.cache_resource
 def load_hybrid_search(local):
-    base_data_path = "CLB_PROPTIT.csv"
-    train_data_path  = "train_data_proptit.xlsx"
-    reranker_path ="Vietnamese_Reranker_finetuned"
+    base_data_path = "ProPTIT-RAG/NeoRAG-Cup-2025/CLB_PROPTIT.csv"
+    train_data_path  = "ProPTIT-RAG/NeoRAG-Cup-2025/train_data_proptit.xlsx"
+    reranker_path ="ProPTIT-RAG/NeoRAG-Cup-2025/Vietnamese_Reranker_finetuned"
     if local:
         llm_name = "Qwen/Qwen3-0.6B"
         llm = LLM_local(llm_name, base_data_path)
@@ -156,4 +156,5 @@ if user_query:
     
     # Chạy lại toàn bộ script để hiển thị câu trả lời mới của bot
     st.rerun()
+
 
