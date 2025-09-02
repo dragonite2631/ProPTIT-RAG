@@ -1,5 +1,5 @@
 # Multiphase RAG Pipeline: **Tam Cố Thảo Lư**
-![](NeoRAG-CUP-2025\Img\fan.png)
+![](\NeoRAG-CUP-2025\Img\fan.png)
 
 
 ## Giới thiệu 
