@@ -11,9 +11,7 @@ from hybrid_search import HybridSearch
 # --- PHẦN CẤU HÌNH TRANG VÀ BIỂU TƯỢNG TIÊU ĐỀ ---
 
 # Đọc và mã hóa ảnh sang Base64
-image_path = "ProPTIT-RAG/NeoRAG-Cup-2025
-/
-"  # Đảm bảo đường dẫn này đúng
+image_path = "Img/logopro.png"  # Đảm bảo đường dẫn này đúng
 encoded_string = None
 try:
     with open(image_path, "rb") as image_file:
@@ -22,7 +20,7 @@ except FileNotFoundError:
     print(f"LỖI: Không tìm thấy tệp tại đường dẫn '{image_path}'. Vui lòng kiểm tra lại.")
 
 ICON_DATA_URL = f"data:image/png;base64,{encoded_string}"
-ICON_PATH = "ProPTIT-RAG/NeoRAG-Cup-2025/"
+ICON_PATH = "Img/logopro.png"
 
 # Cấu hình trang
 st.set_page_config(
@@ -55,7 +53,7 @@ SUGGESTED_QUESTIONS = [
 @st.cache_resource
 def load_model():
     llm_name = "openai/gpt-oss-20b"
-    base_data_path = "ProPTIT-RAG/NeoRAG-Cup-2025/CLB_PROPTIT.csv"
+    base_data_path = "CLB_PROPTIT.csv"
     llm_model = LLM(llm_name, base_data_path)
     return llm_model
 
@@ -63,9 +61,9 @@ llm_model = load_model()
 
 @st.cache_resource
 def load_hybrid_search(local):
-    base_data_path = "ProPTIT-RAG/NeoRAG-Cup-2025/CLB_PROPTIT.csv"
-    train_data_path  = "ProPTIT-RAG/NeoRAG-Cup-2025/train_data_proptit.xlsx"
-    reranker_path ="ProPTIT-RAG/NeoRAG-Cup-2025/Vietnamese_Reranker_finetuned"
+    base_data_path = "CLB_PROPTIT.csv"
+    train_data_path  = "train_data_proptit.xlsx"
+    reranker_path ="Vietnamese_Reranker_finetuned"
     if local:
         llm_name = "Qwen/Qwen3-0.6B"
         llm = LLM_local(llm_name, base_data_path)
@@ -102,6 +100,11 @@ with st.sidebar:
         if st.button(question, key=f"btn_{question}", use_container_width=True):
             st.session_state.clicked_query = question # Sử dụng key khác, không phải "user_query"
             st.rerun()
+    if st.button("Làm mới gợi ý 🔄", use_container_width=True):
+        # Chọn lại 3 câu hỏi ngẫu nhiên mới
+        st.session_state.suggested_questions_this_session = random.sample(SUGGESTED_QUESTIONS, 3)
+        # Chạy lại script để cập nhật giao diện sidebar
+        st.rerun()
 
 # Hiển thị trạng thái tìm kiếm
 if use_rag_search:
@@ -156,5 +159,3 @@ if user_query:
     
     # Chạy lại toàn bộ script để hiển thị câu trả lời mới của bot
     st.rerun()
-
-
