@@ -1,0 +1,4 @@
+K,string_presence@k,rouge_l@k,bleu_4@k,groundedness@k,response_relevancy@k,noise_sensitivity@k
+3,0.31,0.21,0.04,0.62,0.39,0.44
+5,0.31,0.21,0.04,0.65,0.42,0.42
+7,0.3,0.21,0.04,0.6,0.43,0.43

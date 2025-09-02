@@ -1,0 +1,2 @@
+K,hit@k,recall@k,precision@k,f1@k,map@k,mrr@k,ndcg@k
+60,0.97,0.82,0.03,0.05,0.31,0.37,0.37
