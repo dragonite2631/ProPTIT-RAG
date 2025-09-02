@@ -11,7 +11,9 @@ from hybrid_search import HybridSearch
 # --- PHẦN CẤU HÌNH TRANG VÀ BIỂU TƯỢNG TIÊU ĐỀ ---
 
 # Đọc và mã hóa ảnh sang Base64
-image_path = "Img/logopro.png"  # Đảm bảo đường dẫn này đúng
+image_path = "ProPTIT-RAG/NeoRAG-Cup-2025
+/
+"  # Đảm bảo đường dẫn này đúng
 encoded_string = None
 try:
     with open(image_path, "rb") as image_file:
@@ -20,7 +22,7 @@ except FileNotFoundError:
     print(f"LỖI: Không tìm thấy tệp tại đường dẫn '{image_path}'. Vui lòng kiểm tra lại.")
 
 ICON_DATA_URL = f"data:image/png;base64,{encoded_string}"
-ICON_PATH = "Img/logopro.png"
+ICON_PATH = "ProPTIT-RAG/NeoRAG-Cup-2025/"
 
 # Cấu hình trang
 st.set_page_config(
@@ -154,3 +156,4 @@ if user_query:
     
     # Chạy lại toàn bộ script để hiển thị câu trả lời mới của bot
     st.rerun()
+
